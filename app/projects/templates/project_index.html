@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+    <div class ="content">
+    {% for project in projects %}
+        <div class="card" style="width: 32rem;">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="card-img-top" src="{{ project.thumb.url }}">
+                </div>         
+
+                <div class="col-md-4">
+                    <h5>{{ project.title }}</h5>
+                    <p>{{ project.shortDesc }}</p>
+
+                    <a href="{% url 'project_detail' project.pk %}"
+
+                        class="btn btn-dark">
+
+                        Read More
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <style>
+
+        .content {
+            margin-left:10%;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width:80%;
+        }
+
+        .card {
+            margin : 20px;
+        }
+
+    </style>
+
+{% endblock %}

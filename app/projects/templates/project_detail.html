@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ project.title }}</h1>
+<div class="row content">
+    <div class="col-md-4">
+        <img class="proj-logo" src="{{ project.thumb.url }}" alt="" width="100%">
+    </div>
+    <div class="col-md-8">
+        <p>{{ project.shortDesc }}</p>
+        <br>
+        {% autoescape off %}
+        {{ project.description }}
+        {% endautoescape %}
+    </div>
+</div>
+
+<div class="row">
+    <img class="proj-banner" src="{{ project.image.url }}" alt="" width="100%">
+</div>
+
+<style type="text/css">
+
+    .content {
+        margin-left:10%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width:80%;
+    }
+    
+    .proj-banner {
+
+        width:100%;
+
+    }
+
+    .proj-logo {
+        width:80%;
+    }
+
+
+</style>
+{% endblock %}
